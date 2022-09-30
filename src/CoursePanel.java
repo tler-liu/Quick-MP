@@ -3,18 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 import javax.swing.*;
+import java.util.*;
 /**
  *
  * @author tylerliu
  */
 public class CoursePanel extends javax.swing.JPanel {
 
+    ArrayList<Course> courseList;
     /**
      * Creates new form CoursePanel
      */
     public CoursePanel(JPanel mainPanel) {
         initComponents();
         setSize(mainPanel.getSize());
+        courseList = new ArrayList<Course>();
         
     }
 

@@ -146,11 +146,11 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_coursesBtnMouseClicked
 
     private void profileBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileBtnMouseClicked
-        System.out.println("profile button clicked");
-        mainPanel.removeAll();
-        mainPanel.add(profilePanel);
-        coursePanel.setSize(mainPanel.getSize());
-        profilePanel.setSize(mainPanel.getSize());
+//        System.out.println("profile button clicked");
+//        mainPanel.removeAll();
+//        mainPanel.add(profilePanel);
+//        coursePanel.setSize(mainPanel.getSize());
+//        profilePanel.setSize(mainPanel.getSize());
 
     }//GEN-LAST:event_profileBtnMouseClicked
 

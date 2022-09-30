@@ -7,10 +7,6 @@
  *
  * @author tylerliu
  */
-public class Course {
+public class Question {
     
-    private String name;
-    public Course(String name) {
-        this.name = name;
-    }
 }
