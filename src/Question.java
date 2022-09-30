@@ -8,5 +8,25 @@
  * @author tylerliu
  */
 public class Question {
+    private String question;
+    private int typeQuestion;
+    private Topic topic;
     
+    public Question(String q, int t, Topic top) {
+        question = q;
+        typeQuestion = t;
+        topic = top;
+    }
+    
+    public String getQuestionText() {
+        return question;
+    }
+    
+    public int getTypeQuestion() {
+        return typeQuestion;
+    }
+    
+    public Topic getTopic() {
+        return topic;
+    }
 }
