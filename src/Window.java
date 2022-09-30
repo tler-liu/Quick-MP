@@ -142,7 +142,6 @@ public class Window extends javax.swing.JFrame {
         mainPanel.add(coursePanel);
         coursePanel.setSize(mainPanel.getSize());
         profilePanel.setSize(mainPanel.getSize());
-        coursePanel.setLocation(0, 0);
         
     }//GEN-LAST:event_coursesBtnMouseClicked
 
@@ -152,7 +151,6 @@ public class Window extends javax.swing.JFrame {
         mainPanel.add(profilePanel);
         coursePanel.setSize(mainPanel.getSize());
         profilePanel.setSize(mainPanel.getSize());
-        profilePanel.setLocation(0, 0);
 
     }//GEN-LAST:event_profileBtnMouseClicked
 
