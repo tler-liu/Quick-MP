@@ -67,6 +67,7 @@ public class CoursePanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(51, 51, 51));
 
+        jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Courses");

@@ -16,10 +16,12 @@ public class Window extends javax.swing.JFrame {
     public Window() {
         initComponents();
         setTitle("Quick MP");
+        setSize(1500, 1000);
         coursePanel = new CoursePanel(mainPanel);
         profilePanel = new ProfilePanel(mainPanel);
         mainPanel.removeAll();
         mainPanel.add(coursePanel);
+        
         
     }
 
