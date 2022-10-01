@@ -52,6 +52,7 @@ public class Quadratic extends Topic {
         int b = x[1];
         int c = x[2];
         double determinant = b * b - 4 * a * c;
+        double temp = 0;
 
         double x1, x2;
         String answer = "";
@@ -61,6 +62,11 @@ public class Quadratic extends Topic {
         if (determinant > 0) {
             x1 = (-b + Math.sqrt(determinant)) / (2 * a);
             x2 = (-b - Math.sqrt(determinant)) / (2 * a);
+            if (x2 < x1) {
+                temp = x1;
+                x1 = x2;
+                x2 = temp;
+            }
             String ans1 = new DecimalFormat("#.##").format(x1);
             String ans2 = new DecimalFormat("#.##").format(x2);
             answer += ans1 + " and " + ans2;
@@ -83,6 +89,7 @@ public class Quadratic extends Topic {
         int b = x[1];
         int c = x[2];
         double determinant = b * b - 4 * a * c;
+        double temp = 0;
 
         double x1, x2;
         String answer; 
@@ -97,6 +104,13 @@ public class Quadratic extends Topic {
         if (determinant > 0) {
             x1 = (-b + Math.sqrt(determinant)) / (2 * a);
             x2 = (-b - Math.sqrt(determinant)) / (2 * a);
+
+            // putting smaller number first 
+            if (x2 < x1)
+                temp = x1;
+                x1 = x2;
+                x2 = temp;
+
             if (x1 < 0)
             {
                 x1 *= -1;
