@@ -57,7 +57,7 @@ public class TopicIcon extends javax.swing.JPanel {
     private void textPressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textPressed
         System.out.println(topic.getName() + " pressed");
         Quiz quiz = topic.getQuiz();
-        QuizPanel qp = new QuizPanel(quiz);
+        QuizPanel qp = new QuizPanel(coursePanel, quiz);
         
         coursePanel.removeAll();
         coursePanel.add(qp);

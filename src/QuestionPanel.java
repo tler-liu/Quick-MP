@@ -22,6 +22,10 @@ public class QuestionPanel extends javax.swing.JPanel {
         questionTxt.setText(q.getQuestionText());
         System.out.println("created");
     }
+    
+    public String getAnswerTxt() {
+        return answerTxt.getText();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,14 +47,14 @@ public class QuestionPanel extends javax.swing.JPanel {
         questionTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         questionTxt.setText("jTextField1");
 
-        answerTxt.setText("Answer...");
+        answerTxt.setText("Enter Answer...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(questionTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
-            .addComponent(answerTxt)
+            .addComponent(questionTxt)
+            .addComponent(answerTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

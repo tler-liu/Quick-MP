@@ -58,7 +58,7 @@ public class Window extends javax.swing.JFrame {
             .addGap(0, 486, Short.MAX_VALUE)
         );
 
-        menuPanel.setBackground(new java.awt.Color(4, 35, 51));
+        menuPanel.setBackground(new java.awt.Color(174, 198, 207));
 
         title.setEditable(false);
         title.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N

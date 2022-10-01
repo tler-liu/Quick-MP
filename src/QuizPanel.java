@@ -16,16 +16,18 @@ public class QuizPanel extends javax.swing.JPanel implements java.awt.event.Acti
     private JButton submitBtn;
     private ArrayList<QuestionPanel> questionPanels = new ArrayList<QuestionPanel>();
     private JTextField header;
+    private CoursePanel coursePanel;
     /**
      * Creates new form QuizPanel
      */
-    public QuizPanel(Quiz quiz) {
+    public QuizPanel(CoursePanel coursePanel, Quiz quiz) {
         initComponents();
         GridLayout gl = new GridLayout();
         gl.setRows(10);
         setLayout(gl);
 
         this.quiz = quiz;
+        this.coursePanel = coursePanel;
         
         header = new JTextField(quiz.getQuestions().get(0).getQuestionTopic().getName() + " Quiz");
         header.setBackground(new Color(51, 51, 51));
@@ -64,7 +66,18 @@ public class QuizPanel extends javax.swing.JPanel implements java.awt.event.Acti
     public void actionPerformed(java.awt.event.ActionEvent e) {
         if (e.getSource() == submitBtn) {
             System.out.println("submitted quiz");
-            // TODO check answers and generate results page 
+            
+            // TODO check answers and generate results page
+            ArrayList<String> studentAnswers = new ArrayList<String>();
+            for (int i = 0; i < questionPanels.size(); i++) {
+                studentAnswers.add(questionPanels.get(i).getAnswerTxt());
+            }
+            ResultsPanel rp = new ResultsPanel(coursePanel, quiz, studentAnswers);
+            
+            coursePanel.removeAll();
+            coursePanel.add(rp);
+            coursePanel.validate();
+            coursePanel.repaint();
         }
     }
     
