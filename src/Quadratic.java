@@ -178,6 +178,31 @@ public class Quadratic extends Topic {
 
         return steps;
     }
+    @Override
+    public Question getQuestion(int type) {
+        String equation = "";
+        Topic topic = this;
+        Random num = new Random();
+        int qType = type;
+        if (type == 1) {
+            int[] nums = getQuadraticNums();
+            equation = "Please find the values of x to the following equation: " + makeQuadratic(nums) + 
+                        "\nRound the answer to the nearest hundredth place. " + 
+                        "Respond in the form x1, x2 with the smaller number first";
+            String answer = getQuadraticAnswer(nums);
+            return new Question(equation, type, answer, topic, quadraticSteps(nums));
+        }
+        else if (type == 2) {
+            int[] nums = getQuadraticNums();
+            equation = "Please find the factors of the following equation: " + makeQuadratic(nums) +
+                       "\nFind the factors in the format of (ax + b)(ax + b), with the bigger numbers first" 
+                       + "\nNote the spaces, and round to the nearest hundredth, or tenth if the second decimal is 0.";
+            String answer = getFactorsAnswer(nums);
+            return new Question(equation, type, answer, topic, factorSteps(nums));
+        }
+        else 
+            return null;
+    }
 
     @Override
     public Question getQuestion() {
