@@ -9,12 +9,14 @@ import javax.swing.*;
  *
  * @author tylerliu
  */
-public class ResultsPanel extends javax.swing.JPanel {
+public class ResultsPanel extends javax.swing.JPanel implements java.awt.event.ActionListener {
 
     private Quiz quiz;
     private CoursePanel coursePanel;
     private ArrayList<String> studentAnswers;
     private ArrayList<Boolean> correct;
+    
+    private JButton newQuizBtn;
     /**
      * Creates new form ResultsPanel
      */
@@ -42,6 +44,10 @@ public class ResultsPanel extends javax.swing.JPanel {
         
         display();
         
+        JPanel resultPanel = new JPanel();
+        resultPanel.setLayout(new GridLayout(1, 2));
+        
+        
         JTextField result = new JTextField();
         result.setEditable(false);
         //result.setBounds(0, (int) Math.round(this.getSize().getHeight()) - 30, (int) Math.round(this.getSize().getWidth()), 30);
@@ -54,8 +60,33 @@ public class ResultsPanel extends javax.swing.JPanel {
         }
         
         result.setText("Total Score: " + numCorrect + "/" + correct.size());
-        add(result);
+        resultPanel.add(result);
         
+        newQuizBtn = new JButton();
+        newQuizBtn.setText("Generate new quiz to practice mistakes");
+        newQuizBtn.addActionListener(this);
+        
+        resultPanel.add(newQuizBtn);
+        
+        
+        add(resultPanel);
+        
+        
+        
+    }
+    
+    public void actionPerformed(java.awt.event.ActionEvent e) {
+        if (e.getSource() == newQuizBtn) {
+            System.out.println("new tailored quiz!");
+            Quiz newQuiz = quiz.getQuestions().get(0).getQuestionTopic().getQuiz();
+            QuizPanel qp = new QuizPanel(coursePanel, newQuiz);
+            
+            coursePanel.removeAll();
+            coursePanel.add(qp);
+            coursePanel.validate();
+            coursePanel.repaint();
+            
+        }
     }
     
     private ArrayList<Boolean> checkAnswers() {
