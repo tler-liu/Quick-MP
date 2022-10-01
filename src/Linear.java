@@ -26,6 +26,19 @@ public class Linear extends Topic {
         }
         return(s);
   }
+    @Override
+    public Question getQuestion(int r) {
+       Question s = null;
+        if (r == 1) {
+            s = LinSlope();
+        }
+        if (r == 2) {
+            s = LinIntersect();
+        }
+        
+        return s;
+       
+    }
     public static Question LinSlope() {
     int a = 1 + (int) (Math.random() * 10);
     int b = 1 + (int) (Math.random() * 10);
@@ -50,8 +63,8 @@ public class Linear extends Topic {
     }
     int type = 1;
     Topic topic = new Linear("Linear");
-    ArrayList<String> arr = new ArrayList<String>();
-    return new Question(q, type, ans, topic, arr);
+    ArrayList<String> sol = solSlope(a, b, c);
+    return new Question(q, type, ans, topic, sol);
     }
     public static Question LinIntersect() {
         int a = 1 + (int) (Math.random() * 10);
@@ -69,4 +82,19 @@ public class Linear extends Topic {
         ArrayList<String> arr = new ArrayList<String>();
         return new Question(q, type, ans, topic, arr);
       }
+      public static ArrayList<String> solSlope(int a, int b, int c) {
+        ArrayList<String> arr = new ArrayList<String>();
+        arr.add("The given equation is in standard form. We will need to convert it to slope-intercept form (y = mx + b).");
+        arr.add("To isolate y, we will move the x term to the right side and flip the sign");
+        arr.add(b + "y = -" + a + "x + " + c);
+        if (a < 0) {
+          arr.add("Cancel the minus sign");
+          arr.add(b + "y = " + (-1)*a + "x + " + c);
+        }
+        arr.add("Divide both sides of the equation by y's coefficient " + b);
+        arr.add("y = -" + ((-1)*a)/b + "x + " + c/b);
+          arr.add("The coefficient of x is the slope of the equation: " + ((-1)*a)/b);
+          return arr;
+      }
+    
 }
