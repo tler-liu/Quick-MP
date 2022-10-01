@@ -27,8 +27,8 @@ public class ResultIcon extends javax.swing.JPanel {
         
         
         questionTxt.setText(question.getQuestionText());
-        studentAnswerTxt.setText(studentAnswer);
-        correctAnswer.setText(question.getQuestionAnswer());
+        studentAnswerTxt.setText("Your Answer: " + studentAnswer);
+        correctAnswer.setText("Correct Answer: " + question.getQuestionAnswer());
         //setMinimumSize(new Dimension(1, 600));
     }
 
