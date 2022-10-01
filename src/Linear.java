@@ -62,9 +62,9 @@ public class Linear extends Topic {
         String q = "Please find the intersection between the lines " + a + "x " + "+ " + b + "y " + "= " + c + " and "  + d + "x " + "+ " + e + "y " + "= " + f + ".";
         int type = 2;
         Topic topic = new Linear("Linear");
-        double x = (double) ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) );
+        double x = (double) ( ((float)f/e) - ((float)c/b) ) / ( ((float)d/e) - ((float)a/b) );
         double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
-        String ans = "(" + x + ", " + y + ")";
+        String ans = "(" + String.format("%.2f", x) + ", " + String.format("%.2f", y) + ")";
         return new Question(q, type, ans, topic);
       }
 }
