@@ -8,6 +8,7 @@
  * @author tylerliu
  */
 import java.text.*;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Quadratic extends Topic {
@@ -57,7 +58,7 @@ public class Quadratic extends Topic {
         double x1, x2;
         String answer = "";
 
-        System.out.println(a + "..." + b + "..." + c + "..." + determinant);
+        // System.out.println(a + "..." + b + "..." + c + "..." + determinant);
         
         if (determinant > 0) {
             x1 = (-b + Math.sqrt(determinant)) / (2 * a);
@@ -101,7 +102,7 @@ public class Quadratic extends Topic {
         else
             answer = "";
 
-        System.out.println(a + "..." + b + "..." + c + "..." + determinant);
+        // System.out.println(a + "..." + b + "..." + c + "..." + determinant);
         
         if (determinant > 0) {
             x1 = (-b + Math.sqrt(determinant)) / (2 * a);
@@ -149,19 +150,50 @@ public class Quadratic extends Topic {
         
     }
 
+    public static ArrayList<String> quadraticSteps(int[] nums) {
+        ArrayList<String> steps = new ArrayList<>();
+
+        steps.add("Step 1: Notice the values of a, b, and c within the equation.");
+        steps.add("Step 2: The values a, b, and c typically correspond the x^2, x, and the constant respectively within a quadratic equation.");
+        steps.add("Step 3: After noting the values of a, b, and c, just use the quadratic formula to find the values of x.");
+        steps.add("Step 4: The quadratic formula is (-b +/- sqrt(b^2 - 4ac)) / 2");
+        steps.add("Step 5: In the case of this specific problem, a is equal to " + nums[0] + " b is equal to " + nums[1] + " and c is equal to " + nums[2]);
+        steps.add("Step 6: Once you have the equation, just use a calculator, and be sure to solve for both plus and minus equations.");
+        steps.add("Step 7: After plugging in all of the numbers, your answers should come out to " + getQuadraticAnswer(nums));
+
+        return steps;
+    }
+
+    public static ArrayList<String> factorSteps(int[] nums) {
+        ArrayList<String> steps = new ArrayList<>();
+
+        steps.add("Step 1: Notice the values of a, b, and c within the equation.");
+        steps.add("Step 2: The values a, b, and c typically correspond the x^2, x, and the constant respectively within a quadratic equation.");
+        steps.add("Step 3: After noting the values of a, b, and c, just use the quadratic formula to find the values of x.");
+        steps.add("Step 4: The quadratic formula is (-b +/- sqrt(b^2 - 4ac)) / 2");
+        steps.add("Step 5: In the case of this specific problem, a is equal to " + nums[0] + " b is equal to " + nums[1] + " and c is equal to " + nums[2]);
+        steps.add("Step 6: Once you have the equation, just use a calculator, and be sure to solve for both plus and minus equations.");
+        steps.add("Step 7: After plugging in all of the numbers, your answers should come out to " + getFactorsAnswer(nums));
+        steps.add("Step 8: When putting the answer into the correct form, be sure to note when a number is negative, as it will change the final answer");
+
+        return steps;
+    }
+
     @Override
     public Question getQuestion() {
         String equation = "";
         Topic topic = this;
         Random num = new Random();
         int type = num.nextInt(2) + 1;
+        // type 1 - quadratics
+        // type 2 - factors
         if (type == 1) {
             int[] nums = getQuadraticNums();
             equation = "Please find the values of x to the following equation: " + makeQuadratic(nums) + 
                         "\nPlease round the answer to the nearest hundredth place. " + 
                         "Respond in the form x1, x2 with the smaller number first";
             String answer = getQuadraticAnswer(nums);
-            return new Question(equation, type, answer, topic);
+            return new Question(equation, type, answer, topic, quadraticSteps(nums));
         }
         else if (type == 2) {
             int[] nums = getQuadraticNums();
@@ -169,17 +201,16 @@ public class Quadratic extends Topic {
                        "\nPlease find the factors in the format of (ax + b)(ax + b), with the bigger numbers first" 
                        + "\nNote the spaces, and round to the nearest hundredth, or tenth if the second decimal is 0.";
             String answer = getFactorsAnswer(nums);
-            return new Question(equation, type, answer, topic);
+            return new Question(equation, type, answer, topic, factorSteps(nums));
         }
-        System.out.println(type);
+        // System.out.println(type);
         return null;
     }
 
     // testing file
-     public static void main(String[] args) {
-        int[] nums = {1, 5, 3};
-        getFactorsAnswer(nums);
+    //  public static void main(String[] args) {
+    //     int[] nums = {1, -5, 3};
     
-    }
+    // }
 
 }
