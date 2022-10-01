@@ -148,14 +148,16 @@ public class Quadratic extends Topic {
         if (type == 1) {
             int[] nums = getQuadraticNums();
             equation = "Please find the values of x to the following equation: " + makeQuadratic(nums) + 
-                        "\nPlease round the answer to the nearest hundredth place.";
+                        "\nPlease round the answer to the nearest hundredth place. " + 
+                        "Respond in the form x1, x2 with the smaller number first";
             String answer = getQuadraticAnswer(nums);
             return new Question(equation, type, answer, topic);
         }
         else if (type == 2) {
             int[] nums = getQuadraticNums();
             equation = "Please find the factors of the following equation: " + makeQuadratic(nums) +
-                       "\nPlease find the factors in the format of (ax + b)(ax + b)";
+                       "\nPlease find the factors in the format of (ax + b)(ax + b), with the smaller numbers first" 
+                       + "\nNOTE THE SPACES!";
             String answer = getFactorsAnswer(nums);
             return new Question(equation, type, answer, topic);
         }
