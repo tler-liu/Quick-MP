@@ -17,10 +17,17 @@ public class Course {
         this.topics = topics;
     }
     
+    
+    // for testing only
     public static void main(String[] args) {
         ArrayList<Topic> algebraTopics = new ArrayList<Topic>();
         algebraTopics.add(new Quadratic("quadratic"));
         Course algebra = new Course("algebra", algebraTopics);
-        
+        Quiz q = algebraTopics.get(0).getQuiz();
+        System.out.println(q.getQuestions().size());
+    }
+    
+    public String getName() {
+        return name;
     }
 }

@@ -7,9 +7,8 @@
  *
  * @author tylerliu
  */
-public class Linear extends Topic {
-    
-    public Linear(String name) {
+public class PythagoreanTheorem extends Topic {
+    public PythagoreanTheorem(String name) {
         super(name);
     }
     

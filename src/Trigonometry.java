@@ -7,9 +7,8 @@
  *
  * @author tylerliu
  */
-public class Linear extends Topic {
-    
-    public Linear(String name) {
+public class Trigonometry extends Topic {
+    public Trigonometry(String name) {
         super(name);
     }
     

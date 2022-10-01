@@ -15,6 +15,7 @@ public class Window extends javax.swing.JFrame {
      */
     public Window() {
         initComponents();
+        setTitle("Quick MP");
         coursePanel = new CoursePanel(mainPanel);
         profilePanel = new ProfilePanel(mainPanel);
         mainPanel.removeAll();
@@ -62,7 +63,7 @@ public class Window extends javax.swing.JFrame {
         title.setEditable(false);
         title.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         title.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        title.setText("SASE APP");
+        title.setText("Quick MP");
         title.setToolTipText("");
         title.setBorder(null);
 

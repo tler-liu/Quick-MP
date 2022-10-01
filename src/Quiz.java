@@ -9,8 +9,12 @@ import java.util.*;
  */
 public class Quiz {
     
-    ArrayList<Question> questions = new ArrayList<Question>();
+    private ArrayList<Question> questions = new ArrayList<Question>();
     public Quiz(ArrayList<Question> questions) {
         this.questions = questions;
+    }
+    
+    public ArrayList<Question> getQuestions() {
+        return questions;
     }
 }
