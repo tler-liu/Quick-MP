@@ -113,8 +113,8 @@ public class Quadratic extends Topic {
                 x1 = x2;
                 x2 = temp;
             }
-            double ans1 = Double.parseDouble(new DecimalFormat("#.##").format(x1));
-            double ans2 = Double.parseDouble(new DecimalFormat("#.##").format(x2));
+            double ans1 = Double.parseDouble(String.format("%.2f", x1));
+            double ans2 = Double.parseDouble(String.format("%.2f", x2));
 
             if (ans1 < 0 && ans2 < 0) {
                 answer += "(x + " + -ans1 + ")(x + " + -ans2 + ")";
@@ -166,8 +166,8 @@ public class Quadratic extends Topic {
         else if (type == 2) {
             int[] nums = getQuadraticNums();
             equation = "Please find the factors of the following equation: " + makeQuadratic(nums) +
-                       "\nPlease find the factors in the format of (ax + b)(ax + b), with the smaller numbers first" 
-                       + "\nNOTE THE SPACES!";
+                       "\nPlease find the factors in the format of (ax + b)(ax + b), with the bigger numbers first" 
+                       + "\nNote the spaces, and round to the nearest hundredth, or tenth if the second decimal is 0.";
             String answer = getFactorsAnswer(nums);
             return new Question(equation, type, answer, topic);
         }
@@ -176,8 +176,9 @@ public class Quadratic extends Topic {
     }
 
     // testing file
-     public static void main(String[] args) {;
-        getFactorsAnswer(getQuadraticNums());
+     public static void main(String[] args) {
+        int[] nums = {1, 5, 3};
+        getFactorsAnswer(nums);
     
     }
 
