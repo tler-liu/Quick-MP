@@ -18,7 +18,7 @@ public class QuestionPanel extends javax.swing.JPanel {
         question = q;
         GridLayout gl = new GridLayout();
         gl.setColumns(1);
-        gl.setRows(2);
+        gl.setRows(3);
         questionTxt.setText(q.getQuestionText());
         System.out.println("created");
     }
@@ -44,7 +44,6 @@ public class QuestionPanel extends javax.swing.JPanel {
         setSize(new java.awt.Dimension(200, 300));
 
         questionTxt.setEditable(false);
-        questionTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         questionTxt.setText("jTextField1");
 
         answerTxt.setText("Enter Answer...");

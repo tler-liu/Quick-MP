@@ -5,12 +5,6 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="33" green="33" red="33" type="rgb"/>
     </Property>
-    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[200, 400]"/>
-    </Property>
-    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[200, 300]"/>
-    </Property>
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -27,17 +21,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="questionTxt" max="32767" attributes="0"/>
-          <Component id="answerTxt" alignment="0" pref="455" max="32767" attributes="0"/>
+          <Component id="questionTxt" pref="400" max="32767" attributes="0"/>
+          <Component id="studentAnswerTxt" alignment="0" max="32767" attributes="0"/>
+          <Component id="correctAnswer" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="questionTxt" pref="135" max="32767" attributes="0"/>
+              <Component id="questionTxt" min="-2" pref="149" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="answerTxt" pref="115" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+              <Component id="studentAnswerTxt" min="-2" pref="120" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Component id="correctAnswer" min="-2" pref="119" max="-2" attributes="0"/>
+              <EmptySpace pref="93" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,10 +45,20 @@
         <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="questionTxtActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="answerTxt">
+    <Component class="javax.swing.JTextField" name="studentAnswerTxt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Answer..."/>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="jTextField2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="correctAnswer">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
     </Component>
   </SubComponents>

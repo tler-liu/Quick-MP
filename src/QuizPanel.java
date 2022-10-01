@@ -23,7 +23,7 @@ public class QuizPanel extends javax.swing.JPanel implements java.awt.event.Acti
     public QuizPanel(CoursePanel coursePanel, Quiz quiz) {
         initComponents();
         GridLayout gl = new GridLayout();
-        gl.setRows(10);
+        gl.setRows(7);
         setLayout(gl);
 
         this.quiz = quiz;
