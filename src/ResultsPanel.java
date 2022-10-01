@@ -78,7 +78,15 @@ public class ResultsPanel extends javax.swing.JPanel implements java.awt.event.A
     public void actionPerformed(java.awt.event.ActionEvent e) {
         if (e.getSource() == newQuizBtn) {
             System.out.println("new tailored quiz!");
-            Quiz newQuiz = quiz.getQuestions().get(0).getQuestionTopic().getQuiz();
+            int typeMostNeeded = getTopicTypeMostNecessary();
+            Quiz newQuiz;
+            if (typeMostNeeded == 0) {
+                newQuiz = quiz.getQuestions().get(0).getQuestionTopic().getQuiz();
+
+            }
+            else {
+                newQuiz = quiz.getQuestions().get(0).getQuestionTopic().getQuiz(typeMostNeeded);
+            }
             QuizPanel qp = new QuizPanel(coursePanel, newQuiz);
             
             coursePanel.removeAll();
@@ -87,6 +95,26 @@ public class ResultsPanel extends javax.swing.JPanel implements java.awt.event.A
             coursePanel.repaint();
             
         }
+    }
+    
+    private int getTopicTypeMostNecessary() {
+        int[] arr = new int[10];
+        for (int i = 0; i < correct.size(); i++) {
+            if (!correct.get(i)) {
+                int type = quiz.getQuestions().get(i).getQuestionType();
+                arr[type]++;
+            }
+        }
+        
+        int max = 0;
+        int type = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                type = i;
+            }
+        }
+        return type;
     }
     
     private ArrayList<Boolean> checkAnswers() {

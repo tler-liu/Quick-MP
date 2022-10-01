@@ -16,4 +16,9 @@ public class Trigonometry extends Topic {
     public Question getQuestion() {
         return new Question("question", 1, "answer", this, null);
     }
+    
+    @Override
+    public Question getQuestion(int type) {
+        return new Question("question", 1, "answer", this, null);
+    }
 }
