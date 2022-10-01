@@ -36,10 +36,10 @@ public class Quadratic extends Topic {
     public static String makeQuadratic(int[] a) {
         String equation = "";
         if (a[0] > 1) {
-            equation += a[0] + "x^2 - ";
+            equation += a[0] + "x^2 + ";
         }
         else { 
-            equation += "x^2 - ";
+            equation += "x^2 + ";
         }
         equation += a[1] + "x + " + a[2];
         
