@@ -4,6 +4,7 @@
  */
 import java.util.*;
 import java.awt.*;
+import javax.swing.*;
 /**
  *
  * @author tylerliu
@@ -23,7 +24,38 @@ public class ResultsPanel extends javax.swing.JPanel {
         this.quiz = quiz;
         studentAnswers = sa;
         correct = checkAnswers();
+        
+        GridLayout gl = new GridLayout();
+        gl.setColumns(1);
+        gl.setRows(7);
+        setLayout(gl);
+        
+        JTextField title = new JTextField();
+        title.setText(quiz.getQuestions().get(0).getQuestionTopic().getName() + " Quiz Results");
+        title.setEditable(false);
+        title.setForeground(Color.WHITE);
+        title.setBackground(new Color(51, 51, 51));
+        title.setFont(new Font("Helvetica Neue", Font.PLAIN, 24));
+        title.setBorder(null);
+        title.setHorizontalAlignment(JTextField.CENTER);
+        add(title);
+        
         display();
+        
+        JTextField result = new JTextField();
+        result.setEditable(false);
+        //result.setBounds(0, (int) Math.round(this.getSize().getHeight()) - 30, (int) Math.round(this.getSize().getWidth()), 30);
+        
+        int numCorrect = 0;
+        for (int i = 0; i < correct.size(); i++) {
+            if (correct.get(i)) {
+                numCorrect++;
+            }
+        }
+        
+        result.setText("Total Score: " + numCorrect + "/" + correct.size());
+        add(result);
+        
     }
     
     private ArrayList<Boolean> checkAnswers() {
@@ -44,7 +76,9 @@ public class ResultsPanel extends javax.swing.JPanel {
         ArrayList<Question> questions = quiz.getQuestions();
         for (int i = 0; i < questions.size(); i++) {
             // TODO create GUI
-            System.out.println(correct.get(i));
+            //System.out.println(correct.get(i));
+            ResultIcon ri = new ResultIcon(questions.get(i), studentAnswers.get(i), correct.get(i));
+            add(ri);
         }
     }
     
@@ -59,6 +93,8 @@ public class ResultsPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setBackground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
