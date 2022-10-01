@@ -50,7 +50,8 @@ public class Linear extends Topic {
     }
     int type = 1;
     Topic topic = new Linear("Linear");
-    return new Question(q, type, ans, topic);
+    ArrayList<String> arr = new ArrayList<String>();
+    return new Question(q, type, ans, topic, arr);
     }
     public static Question LinIntersect() {
         int a = 1 + (int) (Math.random() * 10);
@@ -65,6 +66,7 @@ public class Linear extends Topic {
         double x = (double) ( ((float)f/e) - ((float)c/b) ) / ( ((float)d/e) - ((float)a/b) );
         double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
         String ans = "(" + String.format("%.2f", x) + ", " + String.format("%.2f", y) + ")";
-        return new Question(q, type, ans, topic);
+        ArrayList<String> arr = new ArrayList<String>();
+        return new Question(q, type, ans, topic, arr);
       }
 }
