@@ -138,11 +138,12 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_coursesBtnActionPerformed
 
     private void coursesBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coursesBtnMouseClicked
-        System.out.println("courses button clicked");
+
         mainPanel.removeAll();
+        coursePanel = new CoursePanel(mainPanel);
         mainPanel.add(coursePanel);
-        coursePanel.setSize(mainPanel.getSize());
-        profilePanel.setSize(mainPanel.getSize());
+        validate();
+        repaint();
         
     }//GEN-LAST:event_coursesBtnMouseClicked
 
@@ -152,6 +153,10 @@ public class Window extends javax.swing.JFrame {
 //        mainPanel.add(profilePanel);
 //        coursePanel.setSize(mainPanel.getSize());
 //        profilePanel.setSize(mainPanel.getSize());
+        mainPanel.removeAll();
+        mainPanel.add(profilePanel);
+        validate();
+        repaint();
 
     }//GEN-LAST:event_profileBtnMouseClicked
 

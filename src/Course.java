@@ -30,4 +30,8 @@ public class Course {
     public String getName() {
         return name;
     }
+    
+    public ArrayList<Topic> getTopics() {
+        return topics;
+    }
 }

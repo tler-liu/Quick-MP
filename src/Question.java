@@ -22,11 +22,11 @@ public class Question {
         return question;
     }
     
-    public int getTypeQuestion() {
+    public int getQuestionType() {
         return typeQuestion;
     }
     
-    public Topic getTopic() {
+    public Topic getQuestionTopic() {
         return topic;
     }
 }

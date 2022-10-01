@@ -9,17 +9,15 @@ import java.util.*;
  *
  * @author tylerliu
  */
-public class Topic {
+public abstract class Topic {
     
     private String name;
     
     public Topic(String name) {
-        
+        this.name = name;
     }
     
-    public Question getQuestion() {
-        return null;
-    }
+    public abstract Question getQuestion();
     
     public Quiz getQuiz() {
         ArrayList<Question> questions = new ArrayList<Question>();
@@ -27,5 +25,9 @@ public class Topic {
             questions.add(getQuestion());
         }
         return new Quiz(questions);
+    }
+    
+    public String getName() {
+        return name;
     }
 }

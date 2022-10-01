@@ -31,12 +31,12 @@ public class CoursePanel extends javax.swing.JPanel {
         
         // add courses and topics 
         ArrayList<Topic> algTopics = new ArrayList<Topic>();
-        algTopics.add(new Quadratic("quadratic"));
-        algTopics.add(new Linear("linear"));
+        algTopics.add(new Quadratic("Quadratic"));
+        algTopics.add(new Linear("Linear"));
         
         ArrayList<Topic> geoTopics = new ArrayList<Topic>();
-        geoTopics.add(new PythagoreanTheorem("pythagoreanTheorem"));
-        geoTopics.add(new Trigonometry("trigonometry"));
+        geoTopics.add(new PythagoreanTheorem("Pythagorean Theorem"));
+        geoTopics.add(new Trigonometry("Trigonometry"));
         
         ArrayList<Topic> calc1Topics = new ArrayList<Topic>();
         ArrayList<Topic> calc2Topics = new ArrayList<Topic>();
@@ -48,7 +48,7 @@ public class CoursePanel extends javax.swing.JPanel {
         
         // create CourseIcons for each course 
         for (int i = 0; i < courseList.size(); i++) {
-            mainContentPanel.add(new CourseIcon(courseList.get(i).getName()));
+            mainContentPanel.add(new CourseIcon(this, courseList.get(i).getName(), courseList.get(i)));
         }
         
     }

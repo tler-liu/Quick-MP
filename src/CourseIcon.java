@@ -9,12 +9,16 @@ import javax.swing.*;
  */
 public class CourseIcon extends javax.swing.JPanel {
 
+    private Course course;
+    private CoursePanel coursePanel;
     /**
      * Creates new form CourseIcon
      */
-    public CourseIcon(String name) {
+    public CourseIcon(CoursePanel coursePanel, String name, Course course) {
         initComponents();
         setCourseNameTxt(name);
+        this.course = course;
+        this.coursePanel = coursePanel;
     }
 
     /**
@@ -62,6 +66,13 @@ public class CourseIcon extends javax.swing.JPanel {
 
     private void courseNameTxtPressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_courseNameTxtPressed
         System.out.println(courseNameTxt.getText() + " Pressed");
+        TopicListPanel tp = new TopicListPanel(course);
+        //tp.setSize(coursePanel.getSize());
+        coursePanel.removeAll();
+
+        coursePanel.add(tp);
+        coursePanel.validate();
+        coursePanel.repaint();
     }//GEN-LAST:event_courseNameTxtPressed
 
 
