@@ -54,7 +54,7 @@ public class Quadratic extends Topic {
         double determinant = b * b - 4 * a * c;
 
         double x1, x2;
-        String answer = "The values of x are: ";
+        String answer = "";
 
         System.out.println(a + "..." + b + "..." + c + "..." + determinant);
         
@@ -71,7 +71,7 @@ public class Quadratic extends Topic {
             x1 = x2 = -b / (2 * a);
             String ans1 = new DecimalFormat("#.##").format(x1);
             String ans2 = new DecimalFormat("#.##").format(x2);
-            answer += ans1 + " and " + ans2;
+            answer += ans1 + ", " + ans2;
             return answer;
         }
         else
@@ -87,10 +87,10 @@ public class Quadratic extends Topic {
         double x1, x2;
         String answer; 
         if (a > 1) {
-            answer = "The answer is: " + a + "";
+            answer = a + "";
         }
         else
-            answer = "The answer is: ";
+            answer = "";
 
         System.out.println(a + "..." + b + "..." + c + "..." + determinant);
         
