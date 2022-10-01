@@ -36,10 +36,10 @@ public class Quadratic extends Topic {
     public static String makeQuadratic(int[] a) {
         String equation = "";
         if (a[0] > 1) {
-            equation += a[0] + "x^2 - ";
+            equation += a[0] + "x^2 + ";
         }
         else { 
-            equation += "x^2 - ";
+            equation += "x^2 + ";
         }
         equation += a[1] + "x + " + a[2];
         
@@ -51,7 +51,8 @@ public class Quadratic extends Topic {
         int a = x[0];
         int b = x[1];
         int c = x[2];
-        double determinant = b * b - 4 * a * c;
+        double determinant = (b * b) - 4 * a * c;
+        double temp = 0;
 
         double x1, x2;
         String answer = "";
@@ -61,9 +62,15 @@ public class Quadratic extends Topic {
         if (determinant > 0) {
             x1 = (-b + Math.sqrt(determinant)) / (2 * a);
             x2 = (-b - Math.sqrt(determinant)) / (2 * a);
+            if (x2 < x1) {
+                temp = x1;
+                x1 = x2;
+                x2 = temp;
+            }
             String ans1 = new DecimalFormat("#.##").format(x1);
             String ans2 = new DecimalFormat("#.##").format(x2);
-            answer += ans1 + " and " + ans2;
+            answer += ans1 + ", " + ans2;
+            // System.out.println(answer);
             return answer;
 
         }
@@ -72,6 +79,7 @@ public class Quadratic extends Topic {
             String ans1 = new DecimalFormat("#.##").format(x1);
             String ans2 = new DecimalFormat("#.##").format(x2);
             answer += ans1 + ", " + ans2;
+            // System.out.println(answer);
             return answer;
         }
         else
@@ -83,6 +91,7 @@ public class Quadratic extends Topic {
         int b = x[1];
         int c = x[2];
         double determinant = b * b - 4 * a * c;
+        double temp = 0;
 
         double x1, x2;
         String answer; 
@@ -97,6 +106,13 @@ public class Quadratic extends Topic {
         if (determinant > 0) {
             x1 = (-b + Math.sqrt(determinant)) / (2 * a);
             x2 = (-b - Math.sqrt(determinant)) / (2 * a);
+
+            // putting smaller number first 
+            if (x2 < x1)
+                temp = x1;
+                x1 = x2;
+                x2 = temp;
+
             if (x1 < 0)
             {
                 x1 *= -1;
@@ -167,8 +183,9 @@ public class Quadratic extends Topic {
 
     // testing file
     // public static void main(String[] args) {
-    //    Quadratic test = new Quadratic("testQuestion");
-    //    test.getQuestion();
+    //    int[] nums = {2, -3, 1};
+    //    getQuadraticAnswer(nums);
+    //
     // }
 
 }
