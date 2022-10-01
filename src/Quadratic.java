@@ -86,7 +86,7 @@ public class Quadratic extends Topic {
             return "error";
     }
 
-    public String getFactorsAnswer(int[] x) {
+    public static String getFactorsAnswer(int[] x) {
         int a = x[0];
         int b = x[1];
         int c = x[2];
@@ -106,34 +106,28 @@ public class Quadratic extends Topic {
         if (determinant > 0) {
             x1 = (-b + Math.sqrt(determinant)) / (2 * a);
             x2 = (-b - Math.sqrt(determinant)) / (2 * a);
-
+            
             // putting smaller number first 
-            if (x2 < x1)
+            if (x2 < x1) {
                 temp = x1;
                 x1 = x2;
                 x2 = temp;
+            }
+            double ans1 = Double.parseDouble(new DecimalFormat("#.##").format(x1));
+            double ans2 = Double.parseDouble(new DecimalFormat("#.##").format(x2));
 
-            if (x1 < 0)
-            {
-                x1 *= -1;
+            if (ans1 < 0 && ans2 < 0) {
+                answer += "(x + " + -ans1 + ")(x + " + -ans2 + ")";
             }
-            if (x2 < 0)
-            {
-                x2 *= -1;
+            else if (ans1 > 0 && ans2 < 0) {
+                answer += "(x - " + ans1 + ")(x + " + -ans2 + ")";
             }
-            String ans1 = new DecimalFormat("#.##").format(x1);
-            String ans2 = new DecimalFormat("#.##").format(x2);
-            if (x1 < 0 && x2 < 0) {
-                answer += "(x + " + ans1 + ")(x + " + ans2 + ")";
-            }
-            else if (x1 > 0 && x2 < 0) {
-                answer += "(x - " + ans1 + ")(x + " + ans2 + ")";
-            }
-            else if (x1 < 0 && x2 > 0) {
-                answer += "(x + " + ans1 + ")(x - " + ans2 + ")";
+            else if (ans1 < 0 && ans2 > 0) {
+                answer += "(x + " + -ans1 + ")(x - " + ans2 + ")";
             }
             else
                 answer += "(x - " + ans1 + ")(x - " + ans2 + ")";
+            System.out.println(answer);
             return answer;
 
         }
@@ -147,7 +141,7 @@ public class Quadratic extends Topic {
             else if (x1 > 0) {
                 answer += "(x - " + ans1 + ")(x - " + ans2 + ")";
             }
-
+            System.out.println(answer);
             return answer;
         }
         else
@@ -182,10 +176,9 @@ public class Quadratic extends Topic {
     }
 
     // testing file
-    // public static void main(String[] args) {
-    //    int[] nums = {2, -3, 1};
-    //    getQuadraticAnswer(nums);
-    //
-    // }
+     public static void main(String[] args) {;
+        getFactorsAnswer(getQuadraticNums());
+    
+    }
 
 }
