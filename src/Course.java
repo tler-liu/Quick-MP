@@ -19,7 +19,7 @@ public class Course {
     
     public static void main(String[] args) {
         ArrayList<Topic> algebraTopics = new ArrayList<Topic>();
-        algebraTopics.add(new Topic("quadratic"));
+        algebraTopics.add(new Quadratic("quadratic"));
         Course algebra = new Course("algebra", algebraTopics);
         
     }
