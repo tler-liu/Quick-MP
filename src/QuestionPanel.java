@@ -2,34 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-import java.util.*;
 import java.awt.*;
 /**
  *
  * @author tylerliu
  */
-public class TopicListPanel extends javax.swing.JPanel {
+public class QuestionPanel extends javax.swing.JPanel {
 
-    private Course course;
-    private CoursePanel coursePanel;
+    private Question question;
     /**
-     * Creates new form TopicListPanel
+     * Creates new form QuestionPanel
      */
-    public TopicListPanel(CoursePanel coursePanel, Course course) {
+    public QuestionPanel(Question q) {
         initComponents();
-        this.course = course;
-        this.coursePanel = coursePanel;
-        
-        ArrayList<Topic> topics = course.getTopics();
+        question = q;
         GridLayout gl = new GridLayout();
         gl.setColumns(1);
         gl.setRows(2);
-        setLayout(gl);
-        
-        for (int i = 0; i < topics.size(); i++) {
-            add(new TopicIcon(coursePanel, topics.get(i)));
-        }
-        
+        questionTxt.setText(q.getQuestionText());
+        System.out.println("created");
     }
 
     /**
@@ -41,19 +32,39 @@ public class TopicListPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        questionTxt = new javax.swing.JTextField();
+        answerTxt = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(51, 51, 51));
+        setMinimumSize(new java.awt.Dimension(200, 400));
+        setSize(new java.awt.Dimension(200, 300));
+
+        questionTxt.setEditable(false);
+        questionTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        questionTxt.setText("jTextField1");
+
+        answerTxt.setText("Answer...");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(questionTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+            .addComponent(answerTxt)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(questionTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(answerTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                .addGap(174, 174, 174))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField answerTxt;
+    private javax.swing.JTextField questionTxt;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,7 +21,7 @@ public abstract class Topic {
     
     public Quiz getQuiz() {
         ArrayList<Question> questions = new ArrayList<Question>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             questions.add(getQuestion());
         }
         return new Quiz(questions);

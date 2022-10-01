@@ -11,11 +11,13 @@ public class Question {
     private String question;
     private int typeQuestion;
     private Topic topic;
+    private String answer;
     
-    public Question(String q, int t, Topic top) {
+    public Question(String q, int t, String ans, Topic top) {
         question = q;
         typeQuestion = t;
         topic = top;
+        answer = ans;
     }
     
     public String getQuestionText() {
@@ -28,5 +30,9 @@ public class Question {
     
     public Topic getQuestionTopic() {
         return topic;
+    }
+    
+    public String getQuestionAnswer() {
+        return answer;
     }
 }

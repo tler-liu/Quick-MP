@@ -10,13 +10,15 @@ import java.util.*;
 public class TopicIcon extends javax.swing.JPanel {
 
     private Topic topic;
+    private CoursePanel coursePanel;
     /**
      * Creates new form TopicIcon
      */
-    public TopicIcon(Topic topic) {
+    public TopicIcon(CoursePanel coursePanel, Topic topic) {
         initComponents();
         this.topic = topic;
         setTopicTxt(topic.getName());
+        this.coursePanel = coursePanel;
     }
 
     /**
@@ -31,6 +33,7 @@ public class TopicIcon extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
 
         jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("jTextField1");
         jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -52,12 +55,14 @@ public class TopicIcon extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textPressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textPressed
-        System.out.println("pressed");
+        System.out.println(topic.getName() + " pressed");
         Quiz quiz = topic.getQuiz();
-        ArrayList<Question> q = quiz.getQuestions();
-        for (int i = 0; i < q.size(); i++) {
-            System.out.println(q.get(i).getQuestionText());
-        }
+        QuizPanel qp = new QuizPanel(quiz);
+        
+        coursePanel.removeAll();
+        coursePanel.add(qp);
+        coursePanel.validate();
+        coursePanel.repaint();
     }//GEN-LAST:event_textPressed
 
 
