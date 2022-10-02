@@ -324,8 +324,63 @@ public class FileRead{
 			}
 		}
     }
-	public static void main (String[] args) throws IOException {
-		Question test = new Question("test", 2, "yes", new Linear("Linear"), null);
-		updateInformation(test);
+	public static Question getMostWrong() throws IOException {
+		File file = new File("test.txt");
+		String oldText = "";
+		// reads the file
+		BufferedReader reader = new BufferedReader(new FileReader(file));
+		String line = reader.readLine();
+		
+		// reads every line of the file
+		while (line != null) {
+			oldText = oldText + line;
+			line = reader.readLine();
+		}
+					
+		// saving original data 
+		String ogString1 = oldText.substring(oldText.indexOf("#") + 1, 
+						   oldText.lastIndexOf("#"));
+		String ogString2 = oldText.substring(oldText.indexOf("$") + 1, 
+						   oldText.lastIndexOf("$"));
+		String ogString3 = oldText.substring(oldText.indexOf("%") + 1, 
+						   oldText.lastIndexOf("%"));
+		String ogString4 = oldText.substring(oldText.indexOf("@") + 1, 
+						   oldText.lastIndexOf("@"));
+
+		// getting the values of every line 
+		int num1 = Integer.parseInt(ogString1);
+		int num2 = Integer.parseInt(ogString2);
+		int num3 = Integer.parseInt(ogString3);
+		int num4 = Integer.parseInt(ogString4);
+
+		// array to loop from least to greatest
+
+		ArrayList<Integer> values = new ArrayList<>();
+
+		// filling array and sorting
+		values.add(num1);
+		values.add(num2);
+		values.add(num3);
+		values.add(num4);
+		Collections.sort(values);
+
+		String largest = values.get(3) + "";
+		if (largest.compareTo(ogString1) == 0) {
+			return new Question(null, 1, null, new Quadratic("Quadratic"), null);
+		}
+		else if (largest.compareTo(ogString2) == 0) {
+			return new Question(null, 2, null, new Quadratic("Factors"), null);
+		}
+		else if (largest.compareTo(ogString3) == 0) {
+			return new Question(null, 1, null, new Linear("Linear"), null);
+		}
+		else if (largest.compareTo(ogString4) == 0) {
+			return new Question(null, 2, null, new Linear("Vertices"), null);
+		}
+		else 
+			return null;
 	}
+	// public static void main (String[] args) throws IOException {
+	// 	System.out.println(getMostWrong().getQuestionType());
+	// }
 }
