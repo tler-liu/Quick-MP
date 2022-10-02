@@ -47,6 +47,9 @@ public class QuestionPanel extends javax.swing.JPanel {
 
         answerTxt.setText("Enter Answer...");
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         questionTxt.setEditable(false);
         questionTxt.setColumns(1);
         questionTxt.setRows(3);

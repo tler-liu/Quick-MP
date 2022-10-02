@@ -33,7 +33,9 @@ public class TopicIcon extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
 
         jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(51, 51, 51));
         jTextField1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("jTextField1");
         jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -33,7 +33,8 @@ public class ResultsPanel extends javax.swing.JPanel implements java.awt.event.A
         setLayout(gl);
         
         JTextField title = new JTextField();
-        title.setText(quiz.getQuestions().get(0).getQuestionTopic().getName() + " Quiz Results");
+        //title.setText(quiz.getQuestions().get(0).getQuestionTopic().getName() + " Quiz Results");
+        title.setText("Quiz Results");
         title.setEditable(false);
         title.setForeground(Color.WHITE);
         title.setBackground(new Color(51, 51, 51));
@@ -45,6 +46,7 @@ public class ResultsPanel extends javax.swing.JPanel implements java.awt.event.A
         display();
         
         JPanel resultPanel = new JPanel();
+        resultPanel.setBackground(new Color(51, 51, 51));
         resultPanel.setLayout(new GridLayout(1, 2));
         
         
@@ -60,10 +62,16 @@ public class ResultsPanel extends javax.swing.JPanel implements java.awt.event.A
         }
         
         result.setText("Total Score: " + numCorrect + "/" + correct.size());
+        result.setHorizontalAlignment(JTextField.CENTER);
+        result.setFont(new Font("Helvetica Neue", Font.BOLD, 24));
+        result.setBackground(new Color(51, 51, 51));
+        result.setForeground(Color.WHITE);
+        result.setBorder(null);
         resultPanel.add(result);
         
         newQuizBtn = new JButton();
         newQuizBtn.setText("Generate new quiz to practice mistakes");
+        newQuizBtn.setFont(new Font("Helvetica Neue", Font.PLAIN, 18));
         newQuizBtn.addActionListener(this);
         
         resultPanel.add(newQuizBtn);

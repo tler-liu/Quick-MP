@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 import javax.swing.*;
+import java.awt.*;
 /**
  *
  * @author tylerliu
@@ -39,7 +40,7 @@ public class CourseIcon extends javax.swing.JPanel {
         });
 
         courseNameTxt.setEditable(false);
-        courseNameTxt.setBackground(new java.awt.Color(153, 153, 153));
+        courseNameTxt.setBackground(new java.awt.Color(51, 51, 51));
         courseNameTxt.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         courseNameTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         courseNameTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,6 +83,8 @@ public class CourseIcon extends javax.swing.JPanel {
 
     public void setCourseNameTxt(String name) {
         courseNameTxt.setText(name);
+        courseNameTxt.setForeground(Color.WHITE);
+        courseNameTxt.setFont(new Font("Helvetica Neue", Font.PLAIN, 24));
     }
    
 

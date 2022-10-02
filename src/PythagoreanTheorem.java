@@ -16,11 +16,11 @@ public class PythagoreanTheorem extends Topic {
 
     @Override
     public Question getQuestion() {
-        return null;
+        return new Question("question", 1, "answer", this, null);
     }
     
     @Override
     public Question getQuestion(int type) {
-        return null;
+        return new Question("question", type, "answer", this, null);
     }
 }

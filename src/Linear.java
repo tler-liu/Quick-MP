@@ -129,7 +129,7 @@ public class Linear extends Topic {
             arr.add("Since y is equal to the RHS od both equations, we can set them equal to each other.");
             arr.add((float) (-1)*a/b + "x + " + (float) c/b + " = " + (float) (-1)*d/e + "x + " + (float) f/e);
             arr.add("We can now isolate x by moving all of its terms to one side and dividing.");
-            arr.add("(" + (float) ((float)(d/e) - (float)(a/b)) + ")x = " +  (float) ((float)(f/e) - (float)(c/b)));
+            //arr.add("(" + (float) ((float)(d/e) - (float)(a/b)) + ")x = " +  (float) ((float)(f/e) - (float)(c/b)));
             double x = (double) ( ((float)f/e) - ((float)c/b) ) / ( ((float)d/e) - ((float)a/b) );
             arr.add("x = " + String.format("%.2f", x));
             arr.add("Then, we can plug x back into either equation to solve for y.");

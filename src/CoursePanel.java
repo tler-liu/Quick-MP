@@ -24,8 +24,8 @@ public class CoursePanel extends javax.swing.JPanel {
         GridLayout gl = new GridLayout();
         gl.setColumns(2);
         gl.setRows(2);
-        gl.setHgap(50);
-        gl.setVgap(50);
+        //gl.setHgap(50);
+        //gl.setVgap(50);
         mainContentPanel.setLayout(gl);
         courseList = new ArrayList<Course>();
         
@@ -70,9 +70,13 @@ public class CoursePanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(51, 51, 51));
 
         jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jTextField1.setBackground(new java.awt.Color(32, 49, 74));
+        jTextField1.setFont(new java.awt.Font("Helvetica Neue", 0, 48)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Courses");
+        jTextField1.setBorder(null);
+        jTextField1.setMinimumSize(new java.awt.Dimension(64, 50));
 
         mainContentPanel.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -84,7 +88,7 @@ public class CoursePanel extends javax.swing.JPanel {
         );
         mainContentPanelLayout.setVerticalGroup(
             mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGap(0, 332, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -100,8 +104,8 @@ public class CoursePanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mainContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
         );
