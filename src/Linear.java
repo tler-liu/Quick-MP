@@ -110,7 +110,7 @@ public class Linear extends Topic {
         arr.add("y = " + (double) ((-1) * ((float)a/b) * x) + ((float)c/b));
         double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
         arr.add("The intersection between the lines is (" + x + ", " + y + ")");
-        
+        return arr;
           
         
       }
