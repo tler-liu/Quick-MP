@@ -104,14 +104,13 @@ public class Linear extends Topic {
         arr.add((float) (-1)*a/b + "x + " + (float) c/b + " = " + (float) (-1)*d/e + "x + " + (float) f/e);
         arr.add("We can now isolate x by moving all of its terms to one side and dividing.");
         arr.add("(" + (float) ((d/e) - (a/b)) + ")x = " + (float) ((f/e) - (c/e)));
-        arr.add("x = " + (double) ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) );
+        arr.add("x = " + (double) ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) ));
         double x = (double) ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) );
         arr.add("Then, we can plug x back into either equation to solve for y.");
         arr.add("y = " + (double) ((-1) * ((float)a/b) * x) + ((float)c/b));
         double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
         arr.add("The intersection between the lines is (" + x + ", " + y + ")");
         
-          
-        
+        return arr;
       }
 }
