@@ -89,26 +89,26 @@ public class Linear extends Topic {
         arr.add(b + "y = -" + a + "x + " + c);
         if (a < 0) {
           arr.add("Cancel the minus sign");
-          arr.add(b + "y = " + (-1)*a + "x + " + c);
+          arr.add(b + "y = " + (double) (-1)*a + "x + " + (double) c);
         }
         arr.add("Divide both sides of the equation by y's coefficient " + b);
-        arr.add("y = -" + ((-1)*a)/b + "x + " + c/b);
-          arr.add("The coefficient of x is the slope of the equation: " + ((-1)*a)/b);
+        arr.add("y = -" + (double) ((-1)*a)/b + "x + " + (double) c/b);
+          arr.add("The coefficient of x is the slope of the equation: " + (double) ((-1)*a)/b);
           return arr;
       }
       public static ArrayList<String> solIntersect(int a, int b, int c, int d, int e, int f) {
         ArrayList<String> arr = new ArrayList<String>();
         arr.add("First, we isolate variable y in both equations.");
-        arr.add("y = -" + ((float) (-1)*a)/b + "x + " + (float) c/b + "         " + "y = -" + (float) ((-1)*d)/e + "x + " + (float) f/e);
+        arr.add("y = " + ((float) (-1)*a)/b + "x + " + (float) c/b + "         " + "y = " + (float) ((-1)*d)/e + "x + " + (float) f/e);
         arr.add("Since y is equal to the RHS od both equations, we can set them equal to each other.");
         arr.add((float) (-1)*a/b + "x + " + (float) c/b + " = " + (float) (-1)*d/e + "x + " + (float) f/e);
         arr.add("We can now isolate x by moving all of its terms to one side and dividing.");
-        arr.add("(" + (float) ((d/e) - (a/b)) + ")x = " + (float) ((f/e) - (c/e)));
-        arr.add("x = " + (double) ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) );
-        double x = (double) ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) );
+        arr.add("(" + ((float)(d/e) - (float)(a/b)) + ")x = " +  ((float)(f/e) - (float)(c/b)));
+        arr.add("x = " + ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) ));
+        float x = (float) ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) );
         arr.add("Then, we can plug x back into either equation to solve for y.");
-        arr.add("y = " + (double) ((-1) * ((float)a/b) * x) + ((float)c/b));
-        double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
+        arr.add("y = " + (float) ((-1) * ((float)a/b) * x) + ((float)c/b));
+        float y = (float) ((-1) * ((float)a/b) * x) + ((float)c/b);
         arr.add("The intersection between the lines is (" + x + ", " + y + ")");
         return arr;
           
