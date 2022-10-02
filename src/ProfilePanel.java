@@ -11,16 +11,33 @@ import javax.swing.*;
 public class ProfilePanel extends javax.swing.JPanel {
 
     private CoursePanel coursePanel;
+    private Question mostWrong;
     //private JPanel mainPanel;
     /**
      * Creates new form ProfilePanel
      */
-    public ProfilePanel(CoursePanel cp) {
+    public ProfilePanel(CoursePanel cp) throws java.io.IOException {
         initComponents();
         coursePanel = cp;
         //this.mainPanel = mainPanel;
         //setSize(mainPanel.getSize());
-        jTextField2.setText("We noticed you tend to miss questions about " + "Do you want to take a quiz about ");
+        mostWrong = FileRead.getMostWrong();
+        
+        String mw = "";
+        if (mostWrong.getQuestionTopic() instanceof Quadratic && mostWrong.getQuestionType() == 1) {
+            mw = "x-intercepts for quadratics";
+        }
+        else if (mostWrong.getQuestionTopic() instanceof Quadratic && mostWrong.getQuestionType() == 2) {
+            mw = "factors for quadratics";
+        }
+        else if (mostWrong.getQuestionTopic() instanceof Linear && mostWrong.getQuestionType() == 1) {
+            mw = "slope for linear equations";
+        }
+        else if (mostWrong.getQuestionTopic() instanceof Linear && mostWrong.getQuestionType() == 2) {
+            mw = "intersections of linear equations";
+        }
+        
+        jTextField2.setText("We noticed you tend to miss questions about " + mw + ". Do you want to take a quiz about " + mw + "?");
     }
 
     /**
@@ -86,8 +103,21 @@ public class ProfilePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         // generate Quiz (placeholder quadratic)
         System.out.println("click here pressed");
-        Topic topic = new Quadratic("Quadratic");
-        Quiz quiz = topic.getQuiz();
+        Quiz quiz = null;
+        
+        if (mostWrong.getQuestionTopic() instanceof Quadratic && mostWrong.getQuestionType() == 1) {
+            quiz = mostWrong.getQuestionTopic().getQuiz(1);
+        }
+        else if (mostWrong.getQuestionTopic() instanceof Quadratic && mostWrong.getQuestionType() == 2) {
+            quiz = mostWrong.getQuestionTopic().getQuiz(2);
+        }
+        else if (mostWrong.getQuestionTopic() instanceof Linear && mostWrong.getQuestionType() == 1) {
+            quiz = mostWrong.getQuestionTopic().getQuiz(1);
+        }
+        else if (mostWrong.getQuestionTopic() instanceof Linear && mostWrong.getQuestionType() == 2) {
+            quiz = mostWrong.getQuestionTopic().getQuiz(2);
+        }
+        
         QuizPanel qp = new QuizPanel(coursePanel, quiz);
         
         
