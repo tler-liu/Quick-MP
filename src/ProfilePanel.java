@@ -42,7 +42,7 @@ public class ProfilePanel extends javax.swing.JPanel {
             jTextField2.setText("We noticed you tend to miss questions about " + mw + ". Do you want to take a quiz about " + mw + "?");
         }
         else {
-            jTextField2.setText("Congrats! You have not gotten a question wrong so far!");
+            jTextField2.setText("Congrats! You haven't gotten a question wrong so far!\nNavigate to the Courses page to take a quiz.");
             jButton1.setVisible(false);
         }
 
