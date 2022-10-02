@@ -73,16 +73,28 @@ public class Linear extends Topic {
         int d = 1 + (int) (Math.random() * 10);
         int e = 1 + (int) (Math.random() * 10);
         int f = 1 + (int) (Math.random() * 10);
-        String q = "Please find the intersection between the lines " + a + "x " + "+ " + b + "y " + "= " + c + " and "  + d + "x " + "+ " + e + "y " + "= " + f + ".";
+        String q = "Please find the intersection between the lines " + a + "x " + "+ " + b + "y " + "= " + c + " and "  + d + "x " + "+ " + e + "y " + "= " + f + ". If there is not only 1 intersection, write all or none";
         int type = 2;
+        String ans;
         Topic topic = new Linear("Linear");
-        double x = (double) ( ((float)f/e) - ((float)c/b) ) / ( ((float)d/e) - ((float)a/b) );
-        double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
-        String ans = "(" + String.format("%.2f", x) + ", " + String.format("%.2f", y) + ")";
+        if ((float) a/b == (float) d/e) {
+            if ((float) f/e == (float) c/b) {
+               ans = "all"; 
+            }
+            else {
+                ans = "none";
+            }
+        }
+        else {
+            double x = (double) ( ((float)f/e) - ((float)c/b) ) / ( ((float)d/e) - ((float)a/b) );
+            double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
+            ans = "(" + String.format("%.2f", x) + ", " + String.format("%.2f", y) + ")";
+        }
+        
         ArrayList<String> sol = solIntersect(a, b, c, d, e, f);
         return new Question(q, type, ans, topic, sol);
       }
-      public static ArrayList<String> solSlope(int a, int b, int c) {
+    public static ArrayList<String> solSlope(int a, int b, int c) {
         ArrayList<String> arr = new ArrayList<String>();
         arr.add("The given equation is in standard form. We will need to convert it to slope-intercept form (y = mx + b).");
         arr.add("To isolate y, we will move the x term to the right side and flip the sign");
@@ -96,22 +108,41 @@ public class Linear extends Topic {
           arr.add("The coefficient of x is the slope of the equation: " + (double) ((-1)*a)/b);
           return arr;
       }
-      public static ArrayList<String> solIntersect(int a, int b, int c, int d, int e, int f) {
+    public static ArrayList<String> solIntersect(int a, int b, int c, int d, int e, int f) {
         ArrayList<String> arr = new ArrayList<String>();
-        arr.add("First, we isolate variable y in both equations.");
-        arr.add("y = " + (float) ((-1)*a)/b + "x + " + (float) c/b + "         " + "y = " + (float) ((-1)*d)/e + "x + " + (float) f/e);
-        arr.add("Since y is equal to the RHS od both equations, we can set them equal to each other.");
-        arr.add((float) (-1)*a/b + "x + " + (float) c/b + " = " + (float) (-1)*d/e + "x + " + (float) f/e);
-        arr.add("We can now isolate x by moving all of its terms to one side and dividing.");
-        arr.add("(" + (float) ((float)(d/e) - (float)(a/b)) + ")x = " +  (float) ((float)(f/e) - (float)(c/b)));
-        double x = (double) ( ((float)f/e) - ((float)c/b) ) / ( ((float)d/e) - ((float)a/b) );
-        arr.add("x = " + String.format("%.2f", x));
-        arr.add("Then, we can plug x back into either equation to solve for y.");
-        double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
-        arr.add("y = " + String.format("%.2f", y));
-        arr.add("The intersection between the lines is (" + x + ", " + y + ")");
+        if ((float) a/b == (float) d/e) {
+            arr.add("Notice that the slopes of the 2 lines are the same.");
+            arr.add("y = " + (float) ((-1)*a)/b + "x + " + (float) c/b + "         " + "y = " + (float) ((-1)*d)/e + "x + " + (float) f/e);
+            if ((float) f/e == (float) c/b) {
+               arr.add("The y-intercepts of these lines are the same as well. This means that they are the same line");
+               arr.add("The intersection of these lines is all real numbers.");
+            }
+            else {
+                arr.add("The y-intercepts of these lines are different. This means they will never intersect");
+                
+            }
+        }
+        else {
+        
+            arr.add("First, we isolate variable y in both equations.");
+            arr.add("y = " + (float) ((-1)*a)/b + "x + " + (float) c/b + "         " + "y = " + (float) ((-1)*d)/e + "x + " + (float) f/e);
+            arr.add("Since y is equal to the RHS od both equations, we can set them equal to each other.");
+            arr.add((float) (-1)*a/b + "x + " + (float) c/b + " = " + (float) (-1)*d/e + "x + " + (float) f/e);
+            arr.add("We can now isolate x by moving all of its terms to one side and dividing.");
+            arr.add("(" + (float) ((float)(d/e) - (float)(a/b)) + ")x = " +  (float) ((float)(f/e) - (float)(c/b)));
+            double x = (double) ( ((float)f/e) - ((float)c/b) ) / ( ((float)d/e) - ((float)a/b) );
+            arr.add("x = " + String.format("%.2f", x));
+            arr.add("Then, we can plug x back into either equation to solve for y.");
+            double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
+            arr.add("y = " + String.format("%.2f", y));
+            arr.add("The intersection between the lines is (" + String.format("%.2f", x) + ", " + String.format("%.2f", y) + ")");
+            
+        }
         return arr;
+    }
+}
           
         
-      }
-}
+      
+
+
