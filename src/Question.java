@@ -41,4 +41,8 @@ public class Question {
     public ArrayList<String> getSolution() {
         return solution;
     }
+    
+    public void setTopic(Topic t) {
+        topic = t;
+    }
 }
