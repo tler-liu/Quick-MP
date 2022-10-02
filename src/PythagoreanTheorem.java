@@ -12,6 +12,8 @@ public class PythagoreanTheorem extends Topic {
         super(name);
     }
     
+    
+
     @Override
     public Question getQuestion() {
         return null;
