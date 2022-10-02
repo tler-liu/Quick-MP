@@ -23,21 +23,29 @@ public class ProfilePanel extends javax.swing.JPanel {
         //setSize(mainPanel.getSize());
         mostWrong = FileRead.getMostWrong();
         
-        String mw = "";
-        if (mostWrong.getQuestionTopic() instanceof Quadratic && mostWrong.getQuestionType() == 1) {
-            mw = "x-intercepts for quadratics";
+        if (mostWrong != null) {
+            String mw = "";
+            jButton1.setVisible(true);
+            if (mostWrong.getQuestionTopic() instanceof Quadratic && mostWrong.getQuestionType() == 1) {
+                mw = "x-intercepts for quadratics";
+            }
+            else if (mostWrong.getQuestionTopic() instanceof Quadratic && mostWrong.getQuestionType() == 2) {
+                mw = "factors for quadratics";
+            }
+            else if (mostWrong.getQuestionTopic() instanceof Linear && mostWrong.getQuestionType() == 1) {
+                mw = "slope for linear equations";
+            }
+            else if (mostWrong.getQuestionTopic() instanceof Linear && mostWrong.getQuestionType() == 2) {
+                mw = "intersections of linear equations";
+            }
+
+            jTextField2.setText("We noticed you tend to miss questions about " + mw + ". Do you want to take a quiz about " + mw + "?");
         }
-        else if (mostWrong.getQuestionTopic() instanceof Quadratic && mostWrong.getQuestionType() == 2) {
-            mw = "factors for quadratics";
+        else {
+            jTextField2.setText("Congrats! You have not gotten a question wrong so far!");
+            jButton1.setVisible(false);
         }
-        else if (mostWrong.getQuestionTopic() instanceof Linear && mostWrong.getQuestionType() == 1) {
-            mw = "slope for linear equations";
-        }
-        else if (mostWrong.getQuestionTopic() instanceof Linear && mostWrong.getQuestionType() == 2) {
-            mw = "intersections of linear equations";
-        }
-        
-        jTextField2.setText("We noticed you tend to miss questions about " + mw + ". Do you want to take a quiz about " + mw + "?");
+
     }
 
     /**

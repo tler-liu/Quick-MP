@@ -157,7 +157,14 @@ public class Window extends javax.swing.JFrame {
 //        profilePanel.setSize(mainPanel.getSize());
         //mainPanel.removeAll();
         coursePanel.removeAll();
-        ProfilePanel pf = new ProfilePanel((CoursePanel) coursePanel);
+        ProfilePanel pf = null;
+        try {
+            pf = new ProfilePanel((CoursePanel) coursePanel);
+           
+        } catch (java.io.IOException exception) {
+            System.out.println("exception thrown!");
+        }
+                
         coursePanel.add(pf);
         //mainPanel.add(profilePanel);
         validate();

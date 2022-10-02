@@ -28,19 +28,19 @@ public class Algebra extends Topic {
         Question q = null;
         if (rand == 1) {
              q = quad.getQuestion(1);
-             q.setTopic(this);
+             //q.setTopic(this);
         }
         else if (rand == 2) {
             q = quad.getQuestion(2);
-            q.setTopic(this);
+            //q.setTopic(this);
         }
         else if (rand == 3) {
             q = lin.getQuestion(1);
-            q.setTopic(this);
+            //q.setTopic(this);
         }
         else {
             q = lin.getQuestion(2);
-            q.setTopic(this);
+            //q.setTopic(this);
         }
         return q;
     }
@@ -51,19 +51,19 @@ public class Algebra extends Topic {
         Question q = null;
         if (rand == 1) {
              q = quad.getQuestion(1);
-             q.setTopic(this);
+             //q.setTopic(this);
         }
         else if (rand == 2) {
             q = quad.getQuestion(2);
-            q.setTopic(this);
+            //q.setTopic(this);
         }
         else if (rand == 3) {
             q = lin.getQuestion(1);
-            q.setTopic(this);
+            //q.setTopic(this);
         }
         else {
             q = lin.getQuestion(2);
-            q.setTopic(this);
+            //q.setTopic(this);
         }
         return q;
     }

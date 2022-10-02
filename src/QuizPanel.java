@@ -72,7 +72,13 @@ public class QuizPanel extends javax.swing.JPanel implements java.awt.event.Acti
             for (int i = 0; i < questionPanels.size(); i++) {
                 studentAnswers.add(questionPanels.get(i).getAnswerTxt());
             }
-            ResultsPanel rp = new ResultsPanel(coursePanel, quiz, studentAnswers);
+            ResultsPanel rp = null;
+            try {
+                rp = new ResultsPanel(coursePanel, quiz, studentAnswers);
+
+            } catch (java.io.IOException exception) {
+                System.out.println("exception thrown!");
+            }
             
             coursePanel.removeAll();
             coursePanel.add(rp);
