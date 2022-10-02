@@ -92,14 +92,14 @@ public class ResultIcon extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void questionTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_questionTxtActionPerformed
-
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
         System.out.println("show steps pressed");
         SolutionFrame sf = new SolutionFrame(question);
     }//GEN-LAST:event_jButton1MousePressed
+
+    private void questionTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_questionTxtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
