@@ -353,6 +353,12 @@ public class FileRead{
 		int num3 = Integer.parseInt(ogString3);
 		int num4 = Integer.parseInt(ogString4);
 
+		// if there are no values, return null
+
+		if (num1 == 0 && num2 == 0 && num3 == 0 && num4 == 0) {
+			return null;
+		}
+
 		// array to loop from least to greatest
 
 		ArrayList<Integer> values = new ArrayList<>();
