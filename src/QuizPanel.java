@@ -29,7 +29,8 @@ public class QuizPanel extends javax.swing.JPanel implements java.awt.event.Acti
         this.quiz = quiz;
         this.coursePanel = coursePanel;
         
-        header = new JTextField(quiz.getQuestions().get(0).getQuestionTopic().getName() + " Quiz");
+        //header = new JTextField(quiz.getQuestions().get(0).getQuestionTopic().getName() + " Quiz");
+        header = new JTextField("Quiz");
         header.setBackground(new Color(51, 51, 51));
         header.setHorizontalAlignment(JTextField.CENTER);
         header.setBorder(null);

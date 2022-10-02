@@ -23,7 +23,7 @@ public class TopicListPanel extends javax.swing.JPanel {
         ArrayList<Topic> topics = course.getTopics();
         GridLayout gl = new GridLayout();
         gl.setColumns(1);
-        gl.setRows(2);
+        gl.setRows(3);
         setLayout(gl);
         
         for (int i = 0; i < topics.size(); i++) {
