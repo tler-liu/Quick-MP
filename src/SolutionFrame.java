@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import java.util.*;
 /**
  *
  * @author tylerliu
@@ -16,8 +16,20 @@ public class SolutionFrame extends javax.swing.JFrame {
     public SolutionFrame(Question q) {
         initComponents();
         setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(900, 600);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         question = q;
+        addText();
+    }
+    
+    private void addText() {
+        ArrayList<String> solution = question.getSolution();
+        String sol = "";
+        for (int i = 0; i < solution.size(); i++) {
+            sol += solution.get(i) + "\n";
+        }
+        jTextArea1.setText(sol);
+        
     }
 
     /**
@@ -45,6 +57,7 @@ public class SolutionFrame extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -60,8 +73,8 @@ public class SolutionFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
         );
 
         pack();
