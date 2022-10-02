@@ -79,8 +79,8 @@ public class Linear extends Topic {
         double x = (double) ( ((float)f/e) - ((float)c/b) ) / ( ((float)d/e) - ((float)a/b) );
         double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
         String ans = "(" + String.format("%.2f", x) + ", " + String.format("%.2f", y) + ")";
-        ArrayList<String> arr = new ArrayList<String>();
-        return new Question(q, type, ans, topic, arr);
+        ArrayList<String> sol = solIntersect(a, b, c, d, e, f);
+        return new Question(q, type, ans, topic, sol);
       }
       public static ArrayList<String> solSlope(int a, int b, int c) {
         ArrayList<String> arr = new ArrayList<String>();
@@ -96,5 +96,22 @@ public class Linear extends Topic {
           arr.add("The coefficient of x is the slope of the equation: " + ((-1)*a)/b);
           return arr;
       }
-    
+      public static ArrayList<String> solIntersect(int a, int b, int c, int d, int e, int f) {
+        ArrayList<String> arr = new ArrayList<String>();
+        arr.add("First, we isolate variable y in both equations.");
+        arr.add("y = -" + ((float) (-1)*a)/b + "x + " + (float) c/b + "         " + "y = -" + (float) ((-1)*d)/e + "x + " + (float) f/e);
+        arr.add("Since y is equal to the RHS od both equations, we can set them equal to each other.");
+        arr.add((float) (-1)*a/b + "x + " + (float) c/b + " = " + (float) (-1)*d/e + "x + " + (float) f/e);
+        arr.add("We can now isolate x by moving all of its terms to one side and dividing.");
+        arr.add("(" + (float) ((d/e) - (a/b)) + ")x = " + (float) ((f/e) - (c/e)));
+        arr.add("x = " + (double) ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) );
+        double x = (double) ( ((float)f/e) - ((float)c/d) ) / ( ((float)d/e) - ((float)a/b) );
+        arr.add("Then, we can plug x back into either equation to solve for y.");
+        arr.add("y = " + (double) ((-1) * ((float)a/b) * x) + ((float)c/b));
+        double y = (double) ((-1) * ((float)a/b) * x) + ((float)c/b);
+        arr.add("The intersection between the lines is (" + x + ", " + y + ")");
+        
+          
+        
+      }
 }
