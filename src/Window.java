@@ -18,7 +18,7 @@ public class Window extends javax.swing.JFrame {
         setTitle("Quick MP");
         setSize(1500, 1000);
         coursePanel = new CoursePanel(mainPanel);
-        profilePanel = new ProfilePanel(mainPanel);
+        //profilePanel = new ProfilePanel(mainPanel, (CoursePanel) coursePanel);
         mainPanel.removeAll();
         mainPanel.add(coursePanel);
         
@@ -155,8 +155,11 @@ public class Window extends javax.swing.JFrame {
 //        mainPanel.add(profilePanel);
 //        coursePanel.setSize(mainPanel.getSize());
 //        profilePanel.setSize(mainPanel.getSize());
-        mainPanel.removeAll();
-        mainPanel.add(profilePanel);
+        //mainPanel.removeAll();
+        coursePanel.removeAll();
+        ProfilePanel pf = new ProfilePanel((CoursePanel) coursePanel);
+        coursePanel.add(pf);
+        //mainPanel.add(profilePanel);
         validate();
         repaint();
 
@@ -168,7 +171,7 @@ public class Window extends javax.swing.JFrame {
 
     private void mainPanelComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_mainPanelComponentResized
         coursePanel.setSize(mainPanel.getSize());
-        profilePanel.setSize(mainPanel.getSize());
+        //profilePanel.setSize(mainPanel.getSize());
     }//GEN-LAST:event_mainPanelComponentResized
 
     /**
@@ -214,7 +217,7 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JTextField title;
     // End of variables declaration//GEN-END:variables
     private JPanel coursePanel;
-    private JPanel profilePanel;
+    //private JPanel profilePanel;
 
 
 }

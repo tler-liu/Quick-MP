@@ -20,7 +20,7 @@ public class ResultsPanel extends javax.swing.JPanel implements java.awt.event.A
     /**
      * Creates new form ResultsPanel
      */
-    public ResultsPanel(CoursePanel coursePanel, Quiz quiz,ArrayList<String> sa) {
+    public ResultsPanel(CoursePanel coursePanel, Quiz quiz,ArrayList<String> sa) throws java.io.IOException {
         initComponents();
         this.coursePanel = coursePanel;
         this.quiz = quiz;
@@ -117,7 +117,7 @@ public class ResultsPanel extends javax.swing.JPanel implements java.awt.event.A
         return type;
     }
     
-    private ArrayList<Boolean> checkAnswers() {
+    private ArrayList<Boolean> checkAnswers() throws java.io.IOException {
         ArrayList<Boolean> correct = new ArrayList<Boolean>();
         ArrayList<Question> questions = quiz.getQuestions();
         for (int i = 0; i < questions.size(); i++) {
@@ -126,6 +126,7 @@ public class ResultsPanel extends javax.swing.JPanel implements java.awt.event.A
             }
             else {
                 correct.add(false);
+                FileRead.updateInformation(questions.get(i));
             }
         }
         return correct;
