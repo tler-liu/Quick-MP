@@ -22,7 +22,7 @@ public class ResultIcon extends javax.swing.JPanel {
         this.correct = correct;
         GridLayout gl = new GridLayout();
         gl.setColumns(1);
-        gl.setRows(4);
+        gl.setRows(5);
         setLayout(gl);
         
         
@@ -44,6 +44,7 @@ public class ResultIcon extends javax.swing.JPanel {
         questionTxt = new javax.swing.JTextField();
         studentAnswerTxt = new javax.swing.JTextField();
         correctAnswer = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 51, 51));
 
@@ -61,13 +62,21 @@ public class ResultIcon extends javax.swing.JPanel {
         correctAnswer.setEditable(false);
         correctAnswer.setText("jTextField1");
 
+        jButton1.setText("Show Steps");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(questionTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(questionTxt)
             .addComponent(studentAnswerTxt)
             .addComponent(correctAnswer)
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +86,9 @@ public class ResultIcon extends javax.swing.JPanel {
                 .addComponent(studentAnswerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(correctAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -85,9 +96,15 @@ public class ResultIcon extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_questionTxtActionPerformed
 
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        System.out.println("show steps pressed");
+        SolutionFrame sf = new SolutionFrame(question);
+    }//GEN-LAST:event_jButton1MousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField correctAnswer;
+    private javax.swing.JButton jButton1;
     private javax.swing.JTextField questionTxt;
     private javax.swing.JTextField studentAnswerTxt;
     // End of variables declaration//GEN-END:variables

@@ -31,8 +31,10 @@ public class CoursePanel extends javax.swing.JPanel {
         
         // add courses and topics 
         ArrayList<Topic> algTopics = new ArrayList<Topic>();
+        algTopics.add(new Algebra("All Algebra Concepts"));
         algTopics.add(new Quadratic("Quadratic"));
         algTopics.add(new Linear("Linear"));
+
         
         ArrayList<Topic> geoTopics = new ArrayList<Topic>();
         geoTopics.add(new PythagoreanTheorem("Pythagorean Theorem"));
