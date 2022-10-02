@@ -20,6 +20,7 @@ public class QuestionPanel extends javax.swing.JPanel {
         gl.setColumns(1);
         gl.setRows(3);
         questionTxt.setText(q.getQuestionText());
+        questionTxt.setRows(3);
         System.out.println("created");
     }
     
@@ -36,31 +37,34 @@ public class QuestionPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        questionTxt = new javax.swing.JTextField();
         answerTxt = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        questionTxt = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setMinimumSize(new java.awt.Dimension(200, 400));
         setSize(new java.awt.Dimension(200, 300));
 
-        questionTxt.setEditable(false);
-        questionTxt.setText("jTextField1");
-
         answerTxt.setText("Enter Answer...");
+
+        questionTxt.setEditable(false);
+        questionTxt.setColumns(1);
+        questionTxt.setRows(3);
+        jScrollPane1.setViewportView(questionTxt);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(questionTxt)
             .addComponent(answerTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(questionTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(answerTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                .addComponent(answerTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                 .addGap(174, 174, 174))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -68,6 +72,7 @@ public class QuestionPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField answerTxt;
-    private javax.swing.JTextField questionTxt;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea questionTxt;
     // End of variables declaration//GEN-END:variables
 }

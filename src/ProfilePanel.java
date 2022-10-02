@@ -74,6 +74,7 @@ public class ProfilePanel extends javax.swing.JPanel {
             }
         });
 
+        jTextField2.setEditable(false);
         jTextField2.setText("jTextField2");
 
         jButton1.setText("Create Quiz");
